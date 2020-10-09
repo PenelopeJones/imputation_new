@@ -8,6 +8,8 @@ epochs=1000
 batch_size=100
 
 cd ..
+mkdir "results/${dataname}/"
+mkdir "results/${dataname}/${task_type}"
 mkdir "results/${dataname}/${task_type}/${model_name}"
 mkdir "results/${dataname}/${task_type}/${model_name}/models"
 mkdir "results/${dataname}/${task_type}/${model_name}/predictions"

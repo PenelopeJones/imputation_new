@@ -18,10 +18,9 @@ import pdb
 
 
 class NoImpRegressionWrapper:
-    def __init__(self, network, batch_size, lr, print_freq, file):
+    def __init__(self, network, batch_size, lr, file):
         self.lr = lr
         self.batch_size = batch_size
-        self.print_freq = print_freq
         self.network = network
         self.n_properties = self.network.out_dim
         self.optimiser = optim.Adam(self.network.parameters(), self.lr)
@@ -161,9 +160,6 @@ class ClassificationWrapper:
 
         input_batch = copy.deepcopy(x_batch)
 
-        #input_batch[:, -self.n_properties:] -= self.means
-        #input_batch[:, -self.n_properties:][mask_context] = 0.0
-
         # Fill in the NaN values with mean for each column.
         if self.standardised:
             input_batch[:, -self.n_properties:][mask_context] = 0.0
@@ -247,6 +243,7 @@ class ClassificationWrapper:
             try:
                 score = roc_auc_score(target, predict_mean)
                 roc_aucs.append(score)
+                """
                 if score > 0.75:
                     print('Target: {} \t ROC-AUC: {}'.format(p, score))
                     precision, recall, thresholds = precision_recall_curve(target, predict_mean)
@@ -254,6 +251,7 @@ class ClassificationWrapper:
                     print('Precision: {}'.format(precision[0]))
                     print('Recall: {}'.format(recall[0]))
                     print('AUC-PRC: {}\\n'.format(auc_prc))
+                """
             except:
                 continue
 
