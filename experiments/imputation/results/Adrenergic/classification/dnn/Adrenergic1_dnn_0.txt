@@ -1,0 +1,86 @@
+
+ Input data:
+ Dataname = Adrenergic
+ Split = 1
+ Number of properties = 5
+ Number of PCA components (0 if no PCA used) = 100
+
+ Model architecture:
+ Model name = dnn
+ Maximum number of iterations = 1000
+ Batch size = 100
+ Optimiser learning rate = 0.001
+ ... building dnn model
+ ... training model. 
+Epoch:   50, Train loss =    0.450 
+Epoch:  100, Train loss =    0.273 
+Epoch:  150, Train loss =    0.213 
+Epoch:  200, Train loss =    0.157 
+Epoch:  250, Train loss =    0.125 
+Epoch:  300, Train loss =    0.093 
+Epoch:  350, Train loss =    0.075 
+Epoch:  400, Train loss =    0.055 
+Epoch:  450, Train loss =    0.046 
+Epoch:  500, Train loss =    0.038 
+Epoch:  550, Train loss =    0.033 
+Epoch:  600, Train loss =    0.030 
+Epoch:  650, Train loss =    0.026 
+Epoch:  700, Train loss =    0.024 
+Epoch:  750, Train loss =    0.021 
+Epoch:  800, Train loss =    0.020 
+Epoch:  850, Train loss =    0.017 
+Epoch:  900, Train loss =    0.017 
+Epoch:  950, Train loss =    0.016 
+Epoch: 1000, Train loss =    0.015 
+
+ R^2 score (train): 0.959+- 0.025
+ RMSE (train): 0.067+- 0.034
+ ROC-AUC (train): 0.999+- 0.001 
+
+ R^2 score (test): 0.073+- 0.123
+ RMSE (test): 0.303+- 0.069
+ ROC-AUC (test): 0.847+- 0.038
+
+ Input data:
+ Dataname = Adrenergic
+ Split = 1
+ Number of properties = 5
+ Number of PCA components (0 if no PCA used) = 100
+
+ Model architecture:
+ Model name = dnn
+ Maximum number of iterations = 1000
+ Batch size = 100
+ Optimiser learning rate = 0.001
+ ... building dnn model
+ ... training model. 
+Epoch:   50, Train loss =    0.043 
+Epoch:  100, Train loss =    0.023 
+Epoch:  150, Train loss =    0.022 
+Epoch:  200, Train loss =    0.019 
+Epoch:  250, Train loss =    0.014 
+Epoch:  300, Train loss =    0.015 
+Epoch:  350, Train loss =    0.017 
+Epoch:  400, Train loss =    0.016 
+Epoch:  450, Train loss =    0.012 
+Epoch:  500, Train loss =    0.014 
+Epoch:  550, Train loss =    0.014 
+Epoch:  600, Train loss =    0.012 
+Epoch:  650, Train loss =    0.015 
+Epoch:  700, Train loss =    0.011 
+Epoch:  750, Train loss =    0.012 
+Epoch:  800, Train loss =    0.009 
+Epoch:  850, Train loss =    0.011 
+Epoch:  900, Train loss =    0.013 
+Epoch:  950, Train loss =    0.013 
+Epoch: 1000, Train loss =    0.015 
+
+ R^2 score (train): 0.969+- 0.025
+ RMSE (train): 0.057+- 0.035 
+
+ ROC-AUC (train): 1.000+- 0.000 
+
+ R^2 score (test): 0.003+- 0.239
+ RMSE (test): 0.309+- 0.060 
+
+ ROC-AUC (test): 0.833+- 0.052 

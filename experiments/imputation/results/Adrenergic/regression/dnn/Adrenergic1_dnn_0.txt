@@ -1,0 +1,137 @@
+
+ Input data:
+ Dataname = Adrenergic
+ Split = 1
+ Number of properties = 5
+ Number of PCA components (0 if no PCA used) = 100
+
+ Model architecture:
+ Model name = dnn
+ Maximum number of iterations = 1000
+ Batch size = 100
+ Optimiser learning rate = 0.001
+ Input data:
+ Dataname = Adrenergic
+ Split = 1
+ Number of properties = 5
+ Number of PCA components (0 if no PCA used) = 100
+
+ Model architecture:
+ Model name = dnn
+ Maximum number of iterations = 1000
+ Batch size = 100
+ Optimiser learning rate = 0.001
+ ... building dnn model
+ ... training model. 
+Epoch:   50, Train loss =   10.105 
+Epoch:  100, Train loss =    1.965 
+Epoch:  150, Train loss =    1.468 
+Epoch:  200, Train loss =    1.155 
+Epoch:  250, Train loss =    1.043 
+Epoch:  300, Train loss =    0.954 
+Epoch:  350, Train loss =    0.911 
+Epoch:  400, Train loss =    0.861 
+Epoch:  450, Train loss =    0.835 
+Epoch:  500, Train loss =    0.795 
+Epoch:  550, Train loss =    0.797 
+Epoch:  600, Train loss =    0.752 
+Epoch:  650, Train loss =    0.723 
+Epoch:  700, Train loss =    0.736 
+Epoch:  750, Train loss =    0.702 
+Epoch:  800, Train loss =    0.662 
+Epoch:  850, Train loss =    0.655 
+Epoch:  900, Train loss =    0.629 
+Epoch:  950, Train loss =    0.623 
+Epoch: 1000, Train loss =    0.592 
+
+ R^2 score (train): 0.795+- 0.048
+ MLL (train): -0.629+- 0.141
+ RMSE (train): 0.531+- 0.066 
+
+ R^2 score (test): 0.568+- 0.055
+ MLL (test): -1.351+- 0.184
+ RMSE (test): 0.720+- 0.064 
+
+ Input data:
+ Dataname = Adrenergic
+ Split = 1
+ Number of properties = 5
+ Number of PCA components (0 if no PCA used) = 100
+
+ Model architecture:
+ Model name = dnn
+ Maximum number of iterations = 1000
+ Batch size = 100
+ Optimiser learning rate = 0.001
+ ... building dnn model
+ ... training model. 
+Epoch:   50, Train loss =    0.740 
+Epoch:  100, Train loss =    0.641 
+Epoch:  150, Train loss =    0.608 
+Epoch:  200, Train loss =    0.583 
+Epoch:  250, Train loss =    0.558 
+Epoch:  300, Train loss =    0.557 
+Epoch:  350, Train loss =    0.537 
+Epoch:  400, Train loss =    0.503 
+Epoch:  450, Train loss =    0.489 
+Epoch:  500, Train loss =    0.501 
+Epoch:  550, Train loss =    0.491 
+Epoch:  600, Train loss =    0.478 
+Epoch:  650, Train loss =    0.425 
+Epoch:  700, Train loss =    0.412 
+Epoch:  750, Train loss =    0.406 
+Epoch:  800, Train loss =    0.397 
+Epoch:  850, Train loss =    0.378 
+Epoch:  900, Train loss =    0.369 
+Epoch:  950, Train loss =    0.378 
+Epoch: 1000, Train loss =    0.339 
+
+ R^2 score (train): 0.868+- 0.037
+ MLL (train): -0.368+- 0.115
+ RMSE (train): 0.425+- 0.060 
+
+ R^2 score (test): 0.574+- 0.043
+ MLL (test): -2.388+- 0.707
+ RMSE (test): 0.716+- 0.057 
+
+ Input data:
+ Dataname = Adrenergic
+ Split = 1
+ Number of properties = 5
+ Number of PCA components (0 if no PCA used) = 100
+
+ Model architecture:
+ Model name = dnn
+ Maximum number of iterations = 1000
+ Batch size = 100
+ Optimiser learning rate = 0.001
+ ... building dnn model
+ ... training model. 
+Epoch:   50, Train loss =    0.580 
+Epoch:  100, Train loss =    0.370 
+Epoch:  150, Train loss =    0.353 
+Epoch:  200, Train loss =    0.340 
+Epoch:  250, Train loss =    0.312 
+Epoch:  300, Train loss =    0.278 
+Epoch:  350, Train loss =    0.314 
+Epoch:  400, Train loss =    0.245 
+Epoch:  450, Train loss =    0.255 
+Epoch:  500, Train loss =    0.263 
+Epoch:  550, Train loss =    0.234 
+Epoch:  600, Train loss =    0.225 
+Epoch:  650, Train loss =    0.196 
+Epoch:  700, Train loss =    0.200 
+Epoch:  750, Train loss =    0.204 
+Epoch:  800, Train loss =    0.164 
+Epoch:  850, Train loss =    0.145 
+Epoch:  900, Train loss =    0.117 
+Epoch:  950, Train loss =    0.122 
+Epoch: 1000, Train loss =    0.099 
+
+ R^2 score (train): 0.904+- 0.034
+ MLL (train): -0.100+- 0.142
+ RMSE (train): 0.359+- 0.067 
+
+ R^2 score (test): 0.551+- 0.044
+ MLL (test): -4.392+- 1.460
+ RMSE (test): 0.734+- 0.053 
