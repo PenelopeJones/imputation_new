@@ -198,8 +198,9 @@ class ClassificationWrapper:
                 self.file.flush()
         return
 
-    def predict(self, x, save=False):
+    def predict(self, x, save=False, means=None):
         mask = torch.isnan(x[:, -self.n_properties:])
+        self.means=means
 
         pdb.set_trace()
         x[:, -self.n_properties:][mask] = torch.take(self.means, torch.where(mask)[1])
