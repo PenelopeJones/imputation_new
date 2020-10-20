@@ -59,6 +59,7 @@ def main(args):
         # Also converts x and x_test from numpy matrices to torch tensors.
         x, x_test, args.means, args.stds = preprocess_data(x, x_test, args.n_properties, args.pca_components, args.task_type)
 
+        pdb.set_trace()
         args.in_dim = x.shape[1]
 
         f.write('\n ... building {} model'.format(args.model_name))

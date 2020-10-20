@@ -213,7 +213,7 @@ class ClassificationWrapper:
         predict_mean = self.network.forward(x) #[n_molecules, n_targets]
 
         if save:
-            path_to_save = self.dir_name + '/predictions/' + self.file_start + '_' + str(p)
+            path_to_save = self.dir_name + '/predictions/' + self.file_start
 
 
             if self.standardised:
