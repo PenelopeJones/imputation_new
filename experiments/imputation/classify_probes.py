@@ -92,6 +92,10 @@ if __name__ == '__main__':
     parser.add_argument('--dataname', default='Excape',
                         help='Name of training dataset.')
     parser.add_argument('--run_number', type=int, default=1000, help='Run number.')
+    parser.add_argument('--num', type=int, default=1,
+                        help='The train/test split number. 1 '
+                             'for Kinase, between 1 and 5 for '
+                             'Adrenergic.')
     parser.add_argument('--epochs', type=int, default=1001,
                         help='Number of training epochs.')
     parser.add_argument('--pca_components', type=int, default=100,
