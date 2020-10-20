@@ -211,7 +211,7 @@ class ClassificationWrapper:
             x[:, -self.n_properties:][mask] = torch.take(self.means, torch.where(mask)[1])
 
         predict_mean = self.network.forward(x) #[n_molecules, n_targets]
-        predict_mean = predict_mean.detach.numpy()
+        predict_mean = predict_mean.detach().numpy()
         if save:
             path_to_save = self.dir_name + '/predictions/' + self.file_start
             pdb.set_trace()
