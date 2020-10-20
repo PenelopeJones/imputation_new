@@ -198,27 +198,19 @@ class ClassificationWrapper:
                 self.file.flush()
         return
 
-    def predict(self, x, save=False, means=None, stds=None):
+    def predict(self, x, save=False):
         mask = torch.isnan(x[:, -self.n_properties:])
 
-        self.standardised = False
-        self.means = means
-        self.stds = stds
-
-        if self.standardised:
-            x[:, -self.n_properties:][mask] = 0.0
-        else:
-            x[:, -self.n_properties:][mask] = torch.take(self.means, torch.where(mask)[1])
-
+        pdb.set_trace()
+        x[:, -self.n_properties:][mask] = torch.take(self.means, torch.where(mask)[1])
+        pdb.set_trace()
         predict_mean = self.network.forward(x) #[n_molecules, n_targets]
+        pdb.set_trace()
         predict_mean = predict_mean.detach().numpy()
+        pdb.set_trace()
         if save:
             path_to_save = self.dir_name + '/predictions/' + self.file_start
-            pdb.set_trace()
-            if self.standardised:
-                predict_mean = (predict_mean * self.stds +
-                                self.means)
-            np.save(path_to_save + '_mean.npy', predict_mean)
+            np.save(path_to_save + '_probe_mean.npy', predict_mean)
 
         return predict_mean
 
