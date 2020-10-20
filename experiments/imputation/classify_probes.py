@@ -75,6 +75,7 @@ def main(args):
                                                                                            args.task_type)
         # If model was saved after last training procedure, reload parameters to continue training from where you left off
         if os.path.isfile(file_path):
+            pdb.set_trace()
             model.network.load_state_dict(torch.load(file_path))
         else:
             raise Exception('No model found.')
