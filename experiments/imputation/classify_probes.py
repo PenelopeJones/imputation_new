@@ -80,7 +80,7 @@ def main(args):
 
         # Make predictions
 
-        predictions = model.predict(x_test, save=True)
+        predictions = model.predict(x_test, save=True, means=args.means, stds=args.stds)
 
         pdb.set_trace()
 

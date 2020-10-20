@@ -198,8 +198,12 @@ class ClassificationWrapper:
                 self.file.flush()
         return
 
-    def predict(self, x, save=False):
+    def predict(self, x, save=False, means=None, stds=None):
         mask = torch.isnan(x[:, -self.n_properties:])
+
+        self.standardised = False
+        self.means = means
+        self.stds = stds
 
         if self.standardised:
             x[:, -self.n_properties:][mask] = 0.0
