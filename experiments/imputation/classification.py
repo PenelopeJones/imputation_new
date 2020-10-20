@@ -116,7 +116,7 @@ if __name__ == '__main__':
     parser.add_argument('--batch_size', type=int, default=100,
                         help='Number of function samples per iteration.')
     parser.add_argument('--hidden_dims', nargs='+', type=int,
-                        default=[500, 500, 500],
+                        default=[100, 100],
                         help='Dimensionality of network hidden layers.')
     parser.add_argument('--lr', type=float, default=0.0001,
                         help='Optimiser learning rate.')

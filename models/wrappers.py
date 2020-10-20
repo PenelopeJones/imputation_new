@@ -198,6 +198,30 @@ class ClassificationWrapper:
                 self.file.flush()
         return
 
+    def predict(self, x, save=False):
+        mask = torch.isnan(x[:, -self.n_properties:])
+
+        if self.standardised:
+            x[:, -self.n_properties:][mask] = 0.0
+        else:
+            x[:, -self.n_properties:][mask] = torch.take(self.means, torch.where(mask)[1])
+
+        predict_mean = self.network.forward(x) #[n_molecules, n_targets]
+
+        if save:
+            path_to_save = self.dir_name + '/predictions/' + self.file_start + '_' + str(p)
+
+
+            if self.standardised:
+                predict_mean = (predict_mean.numpy() * self.stds +
+                                self.means)
+            else:
+                predict_mean = predict_mean.numpy()
+
+            np.save(path_to_save + '_mean.npy', predict_mean)
+
+        return predict_mean
+
     def metrics_calculator(self, x, save=False):
         mask = torch.isnan(x[:, -self.n_properties:])
         r2_scores = []
@@ -240,6 +264,11 @@ class ClassificationWrapper:
             r2_scores.append(r2_score(target, predict_mean))
             rmses.append(np.sqrt(mean_squared_error(target, predict_mean)))
 
+            if save:
+                path_to_save = self.dir_name + '/predictions/' + self.file_start + '_' + str(p)
+                np.save(path_to_save + '_mean.npy', predict_mean)
+                np.save(path_to_save + '_target.npy', target)
+
             try:
                 score = roc_auc_score(target, predict_mean)
                 roc_aucs.append(score)
@@ -254,11 +283,6 @@ class ClassificationWrapper:
                 """
             except:
                 continue
-
-            if save:
-                path_to_save = self.dir_name + '/predictions/' + self.file_start + '_' + str(p)
-                np.save(path_to_save + '_mean.npy', predict_mean)
-                np.save(path_to_save + '_target.npy', target)
 
         return r2_scores, rmses, roc_aucs
 

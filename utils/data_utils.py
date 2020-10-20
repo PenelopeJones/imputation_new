@@ -39,6 +39,45 @@ def nan_transform_data(x_d, x_d_test):
 
     return x_d, x_d_test
 
+def preprocess_probes(x, n_properties, pca_components, task_type='regression'):
+    x = x.astype('float64')
+
+    y = x[:, (-n_properties):]
+    y_test = x_test[:, (-n_properties):]
+
+    if task_type == 'classification':
+        y[y<6] = 0.0
+        y[y>=6] = 1.0
+        y_test[y_test<6] = 0.0
+        y_test[y_test>=6] = 1.0
+
+    means = np.nanmean(y, axis=0)
+    stds = np.nanstd(y, axis=0)
+
+    x_d = x[:, :(-n_properties)]
+    x_d_test = x_test[:, :(-n_properties)]
+
+    # Transform the descriptors but not the target properties: standardise to zero mean and unit variance
+    x_d, x_d_test = nan_transform_data(x_d, x_d_test)
+
+    # Apply PCA to descriptors
+    if pca_components > 0:
+        pca = PCA(n_components=pca_components)
+        x_d = pca.fit_transform(x_d)
+        x_d_test = pca.transform(x_d_test)
+
+    x = np.concatenate((x_d, y), axis=1)
+    x_test = np.concatenate((x_d_test, y_test), axis=1)
+
+    # Convert from numpy to torch
+    x = torch.tensor(x, dtype=torch.float64)
+    x_test = torch.tensor(x_test, dtype=torch.float64)
+
+    means = torch.tensor(means, dtype=torch.float64)
+    stds = torch.tensor(stds, dtype=torch.float64)
+
+    return x, x_test, means, stds
+
 
 def preprocess_data(x, x_test, n_properties, pca_components, task_type='regression'):
     x = x.astype('float64')
@@ -91,9 +130,11 @@ def write_args(f, args):
     f.write('\n Maximum number of iterations = ' + str(args.epochs))
     f.write('\n Batch size = ' + str(args.batch_size))
     f.write('\n Optimiser learning rate = ' + str(args.lr))
+
     if args.model_name == 'baseline':
         f.write('\n Imputing mean and standard deviation of each property. \n')
-
+    elif args.model_name == 'dnn':
+        f.write('\n Hidden dimensions = ' + str(args.hidden_dims))
     elif args.model_name == 'setofconduits':
         f.write('\n Hidden layer size = ' + str(args.hidden_dim))
         f.write('\n Number of cycles = ' + str(args.n_cycles))
