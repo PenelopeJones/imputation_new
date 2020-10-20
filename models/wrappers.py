@@ -199,11 +199,10 @@ class ClassificationWrapper:
         return
 
     def predict(self, x, save=False, means=None):
-        mask = torch.isnan(x[:, -self.n_properties:])
         self.means=means
 
         pdb.set_trace()
-        x[:, -self.n_properties:][mask] = torch.take(self.means, torch.where(mask)[1])
+        x[:, -self.n_properties:] = means
         pdb.set_trace()
         predict_mean = self.network.forward(x) #[n_molecules, n_targets]
         pdb.set_trace()
