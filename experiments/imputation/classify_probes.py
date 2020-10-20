@@ -49,7 +49,7 @@ def main(args):
                              '_train_fingerprints.npy', allow_pickle=True)
         x_test = np.load(args.directory + probe_file, allow_pickle=True)
 
-        y = np.empty((x.shape[0], args.n_properties))
+        y = np.empty((x_test.shape[0], args.n_properties))
 
         x_test = np.concatenate((x_test, y), axis=1)
         pdb.set_trace()
